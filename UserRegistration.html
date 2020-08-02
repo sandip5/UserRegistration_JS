@@ -6,6 +6,7 @@
 <body>
   <script>
     const CHECK_NAME = /^[A-Za-z0-9 ]{3,20}$/;
+    const CHECK_EMAIL = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i
     function check(myform){
       if (!CHECK_NAME.test(myform.firstName.value))
       {
@@ -17,19 +18,28 @@
         alert("Enter Valid Last Name...");
         return false;
       }
+      if (!CHECK_EMAIL.test(myform.email.value))
+      {
+        alert("Enter Valid Last Name...");
+        return false;
+      }
     }
   </script>
   <form name="formvalidate"
   method="get" onSubmit="return check(formvalidate)">
   <p> First Name :
     <input type="text" size="30" name="firstName" /> </p>
-    <p>
-      <p> Last Name :
-        <input type="text" size="30" name="lastName" /> </p>
-        <p>
-          <input type="submit" value="Submit" />
-          <input type="reset"  value="Clear" />
-        </p>
-      </form>
-    </body>
-    </html>
+  </p>
+  <p> Last Name :
+    <input type="text" size="30" name="lastName" /> </p>
+  </p>
+  <p> Email :
+    <input type="text" size="30" name="email" /> </p>
+  </p>
+  <p>
+    <input type="submit" value="Submit" />
+    <input type="reset"  value="Clear" />
+  </p>
+</form>
+</body>
+</html>
