@@ -5,23 +5,31 @@
 </head>
 <body>
   <script>
-    var ck_name = /^[A-Za-z0-9 ]{3,20}$/;
+    const CHECK_NAME = /^[A-Za-z0-9 ]{3,20}$/;
     function check(myform){
-      if (!ck_name.test(myform.myname.value))
+      if (!CHECK_NAME.test(myform.firstName.value))
       {
-        alert("Name is mandatory");
+        alert("Enter Valid First Name...");
+        return false;
+      }
+      if (!CHECK_NAME.test(myform.lastName.value))
+      {
+        alert("Enter Valid Last Name...");
         return false;
       }
     }
   </script>
   <form name="formvalidate"
   method="get" onSubmit="return check(formvalidate)">
-  <p> Name :
-    <input type="text" size="50" name="myname" /> </p>
+  <p> First Name :
+    <input type="text" size="30" name="firstName" /> </p>
     <p>
-      <input type="submit" value="Submit" />
-      <input type="reset"  value="Clear" />
-    </p>
-  </form>
-</body>
-</html>
+      <p> Last Name :
+        <input type="text" size="30" name="lastName" /> </p>
+        <p>
+          <input type="submit" value="Submit" />
+          <input type="reset"  value="Clear" />
+        </p>
+      </form>
+    </body>
+    </html>
