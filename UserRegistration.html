@@ -7,6 +7,7 @@
   <script>
     const CHECK_NAME = /^[A-Za-z0-9 ]{3,20}$/;
     const CHECK_EMAIL = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i
+    const CHECK_MOBILE_NUMBER = /^[0-9]{1,3}[ ][0-9]{10}$/;
     function check(myform){
       if (!CHECK_NAME.test(myform.firstName.value))
       {
@@ -18,7 +19,12 @@
         alert("Enter Valid Last Name...");
         return false;
       }
-      if (!CHECK_EMAIL.test(myform.email.value))
+      if (!CHECK_EMAIL.test(myform.mobileNumber.value))
+      {
+        alert("Enter Valid Last Name...");
+        return false;
+      }
+      if (!CHECK_MOBILE_NUMBER.test(myform.mobileNumber.value))
       {
         alert("Enter Valid Last Name...");
         return false;
@@ -35,6 +41,9 @@
   </p>
   <p> Email :
     <input type="text" size="30" name="email" /> </p>
+  </p>
+  <p> Mobile Number :
+    <input type="text" size="30" name="mobileNumber" /> </p>
   </p>
   <p>
     <input type="submit" value="Submit" />
