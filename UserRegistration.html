@@ -1,13 +1,27 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html>
 <head>
-  <meta charset="utf-8">
-  <title>UserRegistration</title>
-  <h1>Welcome To User Registration Problem</h1>
+  <h1>Registration Form</h1>
 </head>
 <body>
   <script>
-  console.log("Welcome To User Registration Problem");
+    var ck_name = /^[A-Za-z0-9 ]{3,20}$/;
+    function check(myform){
+      if (!ck_name.test(myform.myname.value))
+      {
+        alert("Name is mandatory");
+        return false;
+      }
+    }
   </script>
+  <form name="formvalidate"
+  method="get" onSubmit="return check(formvalidate)">
+  <p> Name :
+    <input type="text" size="50" name="myname" /> </p>
+    <p>
+      <input type="submit" value="Submit" />
+      <input type="reset"  value="Clear" />
+    </p>
+  </form>
 </body>
 </html>
